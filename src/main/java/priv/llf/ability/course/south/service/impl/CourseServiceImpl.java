@@ -3,6 +3,7 @@ package priv.llf.ability.course.south.service.impl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import priv.llf.ability.course.south.arg.CourseQuery;
 import priv.llf.ability.course.south.dao.mybatis.CourseDao;
@@ -23,7 +24,7 @@ import java.util.List;
 @Service("courseService")
 public class CourseServiceImpl implements ICourseService{
 
-//    @Autowired
+    @Autowired
     CourseDao courseDao;
 
     ModelMapper mapper = new ModelMapper();
