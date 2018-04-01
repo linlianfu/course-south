@@ -1,31 +1,73 @@
 /*==============================================================*/
-/* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2018/3/22 23:27:10                           */
-/*==============================================================*/
+        /* DBMS name:      MySQL 5.0                                    */
+        /* Created on:     2018/4/1 22:34:23                            */
+        /*==============================================================*/
 
 
-/*==============================================================*/
-/* Table: USER_GOODS_POOL                                       */
-/*==============================================================*/
-create table USER_GOODS_POOL
-(
-   UGP_ID               varchar(32) not null,
-   USER_ID              varchar(32),
-   ENTITY_ID            varchar(32),
-   UGP_STATE            int,
-   CREATE_TIME          date,
-   primary key (UGP_ID)
-);
+        drop table if exists cre_course;
 
-/*==============================================================*/
-/* Table: USER_GOODS_POOL_EXT                                   */
-/*==============================================================*/
-create table USER_GOODS_POOL_EXT
-(
-   UGPE_ID              varchar(32) not null,
-   UGPE_UGP_ID          char(32),
-   TYPE                 varchar(255),
-   VALUE                varchar(255),
-   primary key (UGPE_ID)
-);
+        drop table if exists crp_courses_pool;
+
+        drop table if exists crp_user_courses_pool;
+
+        drop table if exists crp_user_courses_pool_marker;
+
+        /*==============================================================*/
+        /* Table: cre_course                                            */
+        /*==============================================================*/
+        create table cre_course
+        (
+        CSE_ID               varchar(32) not null comment '课程id',
+        CSE_NAEM             varchar(255) comment '课程名字',
+        CSE_PERIOD           decimal(2) comment '学时',
+        CSE_ABOUTS           text comment '课程简介',
+        CSE_IS_DELETE        int comment '是否删除',
+        CSE_IS_ENABLED       int comment '是否启用',
+        CSE_ICON_PATH        varchar(255) comment '封面图片',
+        primary key (CSE_ID)
+        );
+
+        alter table cre_course comment '描述课程信息';
+
+        /*==============================================================*/
+        /* Table: crp_courses_pool     调 度                                  */
+        /*==============================================================*/
+        create table crp_courses_pool
+        (
+        CCP_ID               varchar(32) not null comment '课程池id',
+        CCP_POOL_NAME        varchar(255) comment '名称',
+        CCP_STATE            int comment '课程池状态|0/1/2，正常/无效/过期',
+        CCP_CREATE_USER_ID   varchar(32) comment '创建人',
+        CCP_POOL_DESCRIPTION varchar(255) comment '描述',
+        primary key (CCP_ID)
+        );
+
+        /*==============================================================*/
+        /* Table: crp_user_courses_pool                                 */
+        /*==============================================================*/
+        create table crp_user_courses_pool
+        (
+        CUP_ID               varchar(32) not null comment '个人课程池编号',
+        CUP_USER_ID          varchar(32) comment '用户编号',
+        CUP_CCP_ID           varchar(32) comment '课程池编号',
+        CUP_ENTITY_TYPE      int comment '元素类型|0/1，课程/课程池，用户选择的元素类型',
+        CUP_ENTITY_ID        varchar(32) comment '元素编号|课程编号或课程池编号',
+        CUP_STATE            int comment '课程状态|0/1/2，正常/冻结/过期，课程在用户个人选课池中的状态',
+        CUP_PERIOD           decimal comment '课程学时|用户选课时，课程的学时或课程池的总学时',
+        CUP_FREEZE_TIME      date comment '冻结时间|最后一次标注为被冻结状态的时间',
+        CUP_CHOOSE_TIME      date comment '选课时间',
+        primary key (CUP_ID)
+        );
+
+        /*==============================================================*/
+        /* Table: crp_user_courses_pool_marker                          */
+        /*==============================================================*/
+        create table crp_user_courses_pool_marker
+        (
+        CUM_ID               varchar(32) not null comment '特征标记编号',
+        CUM_CUP_ID           varchar(32) comment '个人课程池编号',
+        CUM_KEY              varchar(255) comment '特征标记键',
+        CUM_VALUE            varchar(255) comment '特征标记值',
+        primary key (CUM_ID)
+        );
 
