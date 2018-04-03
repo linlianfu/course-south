@@ -36,7 +36,7 @@ public class  Course {
      * 是否删除
      */
     @Column(name = "CSE_IS_DELETE")
-    private boolean isDelete;
+    private boolean delete;
     /**
      * 是否启用
      */

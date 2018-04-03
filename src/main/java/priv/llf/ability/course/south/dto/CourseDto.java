@@ -31,7 +31,7 @@ public class CourseDto implements Serializable{
     /**
      * 是否删除
      */
-    private boolean isDelete = false;
+    private boolean delete = false;
     /**
      * 是否启用
      */
