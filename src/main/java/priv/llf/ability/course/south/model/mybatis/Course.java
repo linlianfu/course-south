@@ -4,7 +4,6 @@ import lombok.Data;
 
 import javax.persistence.Column;
 import java.math.BigDecimal;
-import java.util.UUID;
 
 /**
  * @Author: calvin
@@ -17,7 +16,7 @@ public class  Course {
      * 课程id
      */
     @Column(name = "CSE_ID")
-    private String id = UUID.randomUUID().toString();
+    private String id;
     /**
      * 课程名字
      */
