@@ -32,7 +32,7 @@ public class CourseServiceImpl implements ICourseService{
 
     @Override
     public List<priv.llf.ability.course.south.dto.CourseDto> listCourse(CourseQuery query) {
-        List<Course> courseList = courseDao.selectList("listCourse","id","");
+        List<Course> courseList = courseDao.selectList("listCourse","CSE_ID","");
         if (CollectionUtils.isEmpty(courseList)) return Collections.emptyList();
         List<priv.llf.ability.course.south.dto.CourseDto> result = new ArrayList<>();
 

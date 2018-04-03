@@ -12,7 +12,7 @@
 	</select>
 
 	<insert id="addCourse" parameterType="Course" useGeneratedKeys="true" keyProperty="CSE_ID">
-        INSERT INTO cre_course VALUES (#{id},#{name},#{period},#{abouts},#{isDelete},#{enable},#{path})
+        INSERT INTO cre_course VALUES (#{id},#{name},#{period},#{abouts},#{delete},#{enable},#{path})
 	</insert>
 
 
