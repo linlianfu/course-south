@@ -3,6 +3,8 @@ package priv.llf.ability.course.south.model.mybatis;
 import lombok.Data;
 
 import javax.persistence.Column;
+import java.math.BigDecimal;
+import java.util.UUID;
 
 /**
  * @Author: calvin
@@ -10,10 +12,40 @@ import javax.persistence.Column;
  * @Description:
  */
 @Data
-public class Course {
-
-    @Column(name = "id")
-    private String id;
-    @Column(name = "name")
+public class  Course {
+    /**
+     * 课程id
+     */
+    @Column(name = "CSE_ID")
+    private String id = UUID.randomUUID().toString();
+    /**
+     * 课程名字
+     */
+    @Column(name = "CSE_NAME")
     private String name;
+    /**
+     * 学时
+     */
+    @Column(name = "CSE_PERIOD")
+    private BigDecimal period;
+    /**
+     * 简介
+     */
+    @Column(name = "CSE_ABOUTS")
+    private String abouts;
+    /**
+     * 是否删除
+     */
+    @Column(name = "CSE_IS_DELETE")
+    private boolean isDelete;
+    /**
+     * 是否启用
+     */
+    @Column(name = "CSE_IS_ENABLED")
+    private boolean enable;
+    /**
+     * 图片路径
+     */
+    @Column(name = "CSE_ICON_PATH")
+    private String path;
 }

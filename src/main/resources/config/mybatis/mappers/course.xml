@@ -8,8 +8,12 @@
 
 <!--查询人员对应的信息 -->
 	<select id="listCourse" parameterType="String"  resultType="java.util.Map">
-        select * from course
+        select * from cre_course
 	</select>
+
+	<insert id="addCourse" parameterType="Course" useGeneratedKeys="true" keyProperty="CSE_ID">
+        INSERT INTO cre_course VALUES (#{id},#{name},#{period},#{abouts},#{isDelete},#{enable},#{path})
+	</insert>
 
 
 

@@ -18,11 +18,11 @@
         create table cre_course
         (
         CSE_ID               varchar(32) not null comment '课程id',
-        CSE_NAEM             varchar(255) comment '课程名字',
-        CSE_PERIOD           decimal(2) comment '学时',
+        CSE_NAME             varchar(255) comment '课程名字',
+        CSE_PERIOD           DECIMAL(5,2) comment '学时',
         CSE_ABOUTS           text comment '课程简介',
-        CSE_IS_DELETE        int comment '是否删除',
-        CSE_IS_ENABLED       int comment '是否启用',
+        CSE_IS_DELETE        TINYINT comment '是否删除',
+        CSE_IS_ENABLED       TINYINT comment '是否启用',
         CSE_ICON_PATH        varchar(255) comment '封面图片',
         primary key (CSE_ID)
         );
