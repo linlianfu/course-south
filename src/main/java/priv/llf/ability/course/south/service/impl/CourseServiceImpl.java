@@ -48,7 +48,7 @@ public class CourseServiceImpl implements ICourseService{
     @Override
     public int addCourse(CourseDto dto) {
 
-        Course courseModel = mapper.map(dto,Course.class);
+        Course courseModel =mapper.map(dto,Course.class);
         courseModel.setId(UUID.randomUUID().toString().replaceAll("-",""));
         int result = courseDao.getSqlSession().insert("addCourse",courseModel);
         if (result ==1)
