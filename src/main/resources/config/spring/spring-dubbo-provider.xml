@@ -7,13 +7,14 @@
         http://code.alibabatech.com/schema/dubbo
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <!--配置服务提供方名称-->
-    <dubbo:application name="sport-service-course"/>
+    <dubbo:application name="priv-llf-ability-course-south-provider"/>
     <!-- 连接zookeeper注册中心 192.168.200.128:2181 -->
-    <dubbo:registry address="192.168.3.19:2181" protocol="zookeeper"></dubbo:registry>
+    <dubbo:registry address="127.0.0.1:2181" protocol="zookeeper"/>
     <!-- 对外提供服务的端口号  默认20880 -->
-    <dubbo:protocol host="192.168.3.19" port="20880"></dubbo:protocol>
+    <dubbo:protocol host="127.0.0.1" port="20880"/>
     <!-- 对外暴露的接口 ref为接口对应的实现类-->
-    <dubbo:service interface="priv.llf.ability.course.south.service.ICourseService" ref="courseService"></dubbo:service>
+    <dubbo:service interface="priv.llf.ability.course.south.service.ICourseService" ref="courseService" group="course-south"/>
+
     <!--<bean id="courseService" class="priv.llf.ability.course.south.service.impl.CourseServiceImpl"/>-->
 
 
