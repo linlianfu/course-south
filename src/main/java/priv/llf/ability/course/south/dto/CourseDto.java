@@ -4,11 +4,12 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * @Author: calvin
  * @Since: 2018/3/18 16:33
- * @Description:
+ * @Description: 课程信息
  */
 @Data
 public class CourseDto implements Serializable{
@@ -40,5 +41,9 @@ public class CourseDto implements Serializable{
      * 图片路径
      */
     private String path;
+    /**
+     * 课程特征标记
+     */
+    private List<MarkerDto> markerList;
 
 }

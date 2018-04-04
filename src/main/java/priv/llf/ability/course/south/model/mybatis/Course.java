@@ -3,14 +3,16 @@ package priv.llf.ability.course.south.model.mybatis;
 import lombok.Data;
 
 import javax.persistence.Column;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 
 /**
- * @Author: calvin
+ * @Author: eleven
  * @Since: 2018/3/18 11:52
  * @Description:
  */
 @Data
+@Table(name = "cre_course")
 public class  Course {
     /**
      * 课程id

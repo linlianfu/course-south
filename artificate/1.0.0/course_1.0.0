@@ -1,6 +1,6 @@
 /*==============================================================*/
         /* DBMS name:      MySQL 5.0                                    */
-        /* Created on:     2018/4/4 19:46:49                            */
+        /* Created on:     2018/4/4 22:53:55                            */
         /*==============================================================*/
 
 
@@ -27,7 +27,9 @@
         CSE_IS_ENABLED       tinyint comment '是否启用',
         CSE_ICON_PATH        varchar(255) comment '封面图片',
         primary key (CSE_ID)
-        );
+        )
+        ENGINE = InnoDB
+        DEFAULT CHARACTER SET = utf8;
 
         alter table cre_course comment '描述课程信息';
 
@@ -41,7 +43,11 @@
         CCM_KEY              varchar(255) comment '特征标记键',
         CCM_VALUE            varchar(255) comment '特征标记值',
         primary key (CCM_ID)
-        );
+        )
+        ENGINE = InnoDB
+        DEFAULT CHARACTER SET = utf8;
+
+        alter table cre_course_masker comment '课程marker';
 
         /*==============================================================*/
         /* Table: crp_courses_pool                                      */
@@ -54,7 +60,11 @@
         CCP_CREATE_USER_ID   varchar(32) comment '创建人',
         CCP_POOL_DESCRIPTION varchar(255) comment '描述',
         primary key (CCP_ID)
-        );
+        )
+        ENGINE = InnoDB
+        DEFAULT CHARACTER SET = utf8;
+
+        alter table crp_courses_pool comment '课程池信息';
 
         /*==============================================================*/
         /* Table: crp_user_courses_pool                                 */
@@ -71,7 +81,11 @@
         CUP_FREEZE_TIME      date comment '冻结时间|最后一次标注为被冻结状态的时间',
         CUP_CHOOSE_TIME      date comment '选课时间',
         primary key (CUP_ID)
-        );
+        )
+        ENGINE = InnoDB
+        DEFAULT CHARACTER SET = utf8;
+
+        alter table crp_user_courses_pool comment '用户课程池信息';
 
         /*==============================================================*/
         /* Table: crp_user_courses_pool_marker                          */
@@ -83,5 +97,9 @@
         CUM_KEY              varchar(255) comment '特征标记键',
         CUM_VALUE            varchar(255) comment '特征标记值',
         primary key (CUM_ID)
-        );
+        )
+        ENGINE = InnoDB
+        DEFAULT CHARACTER SET = utf8;
+
+        alter table crp_user_courses_pool_marker comment '用户课程池特征信息';
 

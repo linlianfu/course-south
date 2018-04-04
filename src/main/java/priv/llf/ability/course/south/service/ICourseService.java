@@ -1,16 +1,17 @@
 package priv.llf.ability.course.south.service;
 
+import org.springframework.validation.annotation.Validated;
 import priv.llf.ability.course.south.arg.CourseQuery;
 import priv.llf.ability.course.south.dto.CourseDto;
-import priv.llf.ability.course.south.model.mybatis.Course;
 
 import java.util.List;
 
 /**
- * @Author: calvin
+ * @Author: eleven
  * @Since: 2018/3/18 16:31
  * @Description:
  */
+@Validated
 public interface ICourseService {
     /**
      * 课程分页查询

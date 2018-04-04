@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Slf4j
 @Controller
-@RequestMapping(value = "course")
+@RequestMapping(value = "courseManager")
 public class CourseManagerAction {
 
     @Autowired

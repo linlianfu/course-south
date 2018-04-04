@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="priv.llf.ability.course.south.model.mybatis.CourseMarker">
+
+
+    <insert id="addCourseMarker" parameterType="CourseMarker">
+        <selectKey keyProperty="id" resultType="String" order="BEFORE">
+            SELECT REPLACE(UUID(),"-","")
+        </selectKey>
+        INSERT INTO  cre_course_masker VALUES (#{id},#{courseId},#{key},#{value})
+    </insert>
+
+    <insert id="addCourseMarkerBatch" parameterType="CourseMarker">
+        INSERT INTO cre_course_masker VALUES
+        <foreach collection="list" item="item" separator=",">
+              ( (SELECT REPLACE(UUID(), '-', '') AS id),#{item.courseId},#{item.key},#{item.value})
+        </foreach>
+    </insert>
+</mapper>

@@ -10,5 +10,5 @@ import priv.llf.mybatis.dao.BaseMybatisDaoImpl;
  * @Description:
  */
 @Repository
-public class CourseDao extends BaseMybatisDaoImpl<Course,String>{
+public class CourseDaoImpl extends BaseMybatisDaoImpl<Course,String>{
 }
