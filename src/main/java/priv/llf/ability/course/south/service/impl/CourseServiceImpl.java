@@ -14,7 +14,6 @@ import priv.llf.ability.course.south.service.ICourseService;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * @Author: calvin
@@ -48,8 +47,7 @@ public class CourseServiceImpl implements ICourseService{
     @Override
     public int addCourse(CourseDto dto) {
 
-        Course courseModel =mapper.map(dto,Course.class);
-        courseModel.setId(UUID.randomUUID().toString().replaceAll("-",""));
+        Course courseModel = mapper.map(dto,Course.class);
         int result = courseDao.getSqlSession().insert("addCourse",courseModel);
         if (result ==1)
             log.info("课程保存成功");

@@ -12,6 +12,9 @@
 	</select>
 
 	<insert id="addCourse" parameterType="Course" useGeneratedKeys="true" keyProperty="CSE_ID">
+		<selectKey keyProperty="id" resultType="String" order="BEFORE">
+			select REPLACE(UUID(),"-","")
+		</selectKey>
         INSERT INTO cre_course VALUES (#{id},#{name},#{period},#{abouts},#{delete},#{enable},#{path})
 	</insert>
 
