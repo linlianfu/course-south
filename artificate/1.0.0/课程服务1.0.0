@@ -1,10 +1,12 @@
 /*==============================================================*/
         /* DBMS name:      MySQL 5.0                                    */
-        /* Created on:     2018/4/1 22:34:23                            */
+        /* Created on:     2018/4/4 19:46:49                            */
         /*==============================================================*/
 
 
         drop table if exists cre_course;
+
+        drop table if exists cre_course_masker;
 
         drop table if exists crp_courses_pool;
 
@@ -19,10 +21,10 @@
         (
         CSE_ID               varchar(32) not null comment '课程id',
         CSE_NAME             varchar(255) comment '课程名字',
-        CSE_PERIOD           DECIMAL(5,2) comment '学时',
+        CSE_PERIOD           decimal(5,2) comment '学时',
         CSE_ABOUTS           text comment '课程简介',
-        CSE_IS_DELETE        TINYINT comment '是否删除',
-        CSE_IS_ENABLED       TINYINT comment '是否启用',
+        CSE_IS_DELETE        tinyint comment '是否删除',
+        CSE_IS_ENABLED       tinyint comment '是否启用',
         CSE_ICON_PATH        varchar(255) comment '封面图片',
         primary key (CSE_ID)
         );
@@ -30,7 +32,19 @@
         alter table cre_course comment '描述课程信息';
 
         /*==============================================================*/
-        /* Table: crp_courses_pool     调 度                                  */
+        /* Table: cre_course_masker                                     */
+        /*==============================================================*/
+        create table cre_course_masker
+        (
+        CCM_ID               varchar(32) not null comment '特征标记编号',
+        CCM_CSE_ID           varchar(32) comment '所属课程编号',
+        CCM_KEY              varchar(255) comment '特征标记键',
+        CCM_VALUE            varchar(255) comment '特征标记值',
+        primary key (CCM_ID)
+        );
+
+        /*==============================================================*/
+        /* Table: crp_courses_pool                                      */
         /*==============================================================*/
         create table crp_courses_pool
         (
