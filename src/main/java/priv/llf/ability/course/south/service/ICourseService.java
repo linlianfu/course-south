@@ -21,6 +21,19 @@ public interface ICourseService {
     List<CourseDto> listCourse(CourseQuery query);
 
     /**
+     * 课程分页查询
+     * @param query
+     * @return
+     */
+    List<CourseDto> listCourseByQuery(CourseQuery query);
+    /**
+     * 课程详情
+     * @param query
+     * @return
+     */
+    List<CourseDto> listCourseDetail(CourseQuery query);
+
+    /**
      * 添加一门课程
      * @param dto
      * @return

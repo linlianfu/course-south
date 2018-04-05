@@ -3,6 +3,7 @@ package priv.llf.ability.course.south.service.impl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -43,7 +44,7 @@ public class CourseServiceImpl implements ICourseService{
 
     @Override
     public List<priv.llf.ability.course.south.dto.CourseDto> listCourse(CourseQuery query) {
-        List<Course> courseList = courseDao.selectList("listCourse","CSE_ID","");
+        List<Course> courseList = courseDao.selectList("listCourseToMap","CSE_ID","");
         if (CollectionUtils.isEmpty(courseList)) return Collections.emptyList();
         List<priv.llf.ability.course.south.dto.CourseDto> result = new ArrayList<>();
 
@@ -53,7 +54,30 @@ public class CourseServiceImpl implements ICourseService{
         });
 
         log.info("课程服务收到课程查询请求。。。。");
-        logService.saveLog("查询课程保存日志");
+        return result;
+    }
+
+    @Override
+    public List<CourseDto> listCourseByQuery(CourseQuery query) {
+
+        List<Course> courseList = courseDao.getSqlSession().selectList("listCourseByQuery");
+        if (CollectionUtils.isEmpty(courseList)) return Collections.emptyList();
+        List<priv.llf.ability.course.south.dto.CourseDto> result = new ArrayList<>();
+        courseList.forEach(object->{
+            priv.llf.ability.course.south.dto.CourseDto courseDto = mapper.map(object, priv.llf.ability.course.south.dto.CourseDto.class);
+            result.add(courseDto);
+        });
+
+        return result;
+    }
+
+    @Override
+    public List<CourseDto> listCourseDetail(CourseQuery query) {
+
+        List<Course> courseList =  courseDao.getSqlSession().selectList("listCourseDetail");
+        if (CollectionUtils.isEmpty(courseList)) return Collections.emptyList();
+        List<priv.llf.ability.course.south.dto.CourseDto> result;
+        result = mapper.map(courseList,new TypeToken<List<CourseDto>>(){}.getType());
         return result;
     }
 

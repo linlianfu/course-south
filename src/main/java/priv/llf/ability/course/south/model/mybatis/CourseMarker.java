@@ -1,6 +1,7 @@
 package priv.llf.ability.course.south.model.mybatis;
 
 import lombok.Data;
+import org.apache.ibatis.type.Alias;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
@@ -11,6 +12,7 @@ import javax.persistence.Table;
  * @Description:
  */
 @Data
+@Alias("courseMarker")
 @Table(name = "cre_course_masker")
 public class CourseMarker {
     /**
@@ -27,10 +29,10 @@ public class CourseMarker {
      * 特征标记键
      */
     @Column(name = "CCM_KEY")
-    private String key;
+    private String courseKey;
     /**
      * 特征标记值
      */
     @Column(name = "CCM_VALUE")
-    private String value;
+    private String courseValue;
 }

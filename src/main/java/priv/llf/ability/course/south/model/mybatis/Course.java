@@ -1,10 +1,12 @@
 package priv.llf.ability.course.south.model.mybatis;
 
 import lombok.Data;
+import org.apache.ibatis.type.Alias;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * @Author: eleven
@@ -12,6 +14,7 @@ import java.math.BigDecimal;
  * @Description:
  */
 @Data
+@Alias("course")
 @Table(name = "cre_course")
 public class  Course {
     /**
@@ -38,15 +41,17 @@ public class  Course {
      * 是否删除
      */
     @Column(name = "CSE_IS_DELETE")
-    private boolean delete;
+    private boolean isDelete;
     /**
      * 是否启用
      */
     @Column(name = "CSE_IS_ENABLED")
-    private boolean enable;
+    private boolean isEnable;
     /**
      * 图片路径
      */
     @Column(name = "CSE_ICON_PATH")
     private String path;
+
+    private List<CourseMarker> markerList;
 }

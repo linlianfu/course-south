@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 营业点管理-->
+<mapper namespace="priv.llf.ability.course.south.model.mybatis.Course">
+
+	<!-- 一对多查询  -->
+	<resultMap id="courseMap" type="course">
+		<id column="id" property="id"></id>
+		<collection property="markerList" ofType="CourseMarker" />
+	</resultMap>
+	<select id="listCourseDetail" resultMap="courseMap">
+	select CSE_ID id,
+			   CSE_NAME name,
+			   CSE_PERIOD period,
+			   CSE_ABOUTS abouts,
+			   CSE_IS_DELETE isdelete,
+			   CSE_IS_ENABLED isenable,
+			   CSE_ICON_PATH path,
+			   CCM_KEY courseKey,
+		  	   CCM_VALUE courseValue
+ 		from cre_course cc,cre_course_masker ccm
+ 		WHERE  cc.CSE_ID = ccm.CCM_CSE_ID;
+	</select>
+
+	<select id="listCourseMarker" resultType="courseMarker" parameterType="int">
+	select CCM_KEY courseKey,
+		   CCM_VALUE courseValue
+	from cre_course_masker
+	WHEN CCM_CSE_ID = #{id};
+	</select>
+
+	<!-- 一对多查询 end -->
+
+
+
+
+
+
+
+
+
+	<!--查询课程分页，直接利用mybatis的结果映射-->
+	<select id="listCourseByQuery" parameterType="String"  resultType="course">
+		select CSE_ID id,
+			   CSE_NAME name,
+			   CSE_PERIOD period,
+			   CSE_ABOUTS abouts,
+			   CSE_IS_DELETE isdelete,
+			   CSE_IS_ENABLED isenable,
+			   CSE_ICON_PATH path
+ 		from cre_course;
+	</select>
+
+	<!--查询课程信息，外部封装自己映射结果 -->
+	<select id="listCourseToMap" parameterType="String"  resultType="java.util.Map">
+        select * from cre_course
+	</select>
+	<!--添加课程-->
+	<insert id="addCourse" parameterType="Course">
+		<selectKey keyProperty="id" resultType="String" order="BEFORE">
+			select REPLACE(UUID(),"-","")
+		</selectKey>
+        INSERT INTO cre_course VALUES (#{id},#{name},#{period},#{abouts},#{delete},#{enable},#{path})
+	</insert>
+
+
+
+</mapper>

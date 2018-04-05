@@ -27,7 +27,7 @@ public class CourseManagerAction {
     ICourseService courseService;
 
     /**
-     * 查询课程
+     * 查询课程（类反射机制映射）
      * @return
      */
     @ResponseBody
@@ -35,6 +35,26 @@ public class CourseManagerAction {
     public List<CourseDto> list(){
         log.info("获取课程详情");
         return courseService.listCourse(new CourseQuery());
+    }
+    /**
+     * 查询课程(mybatis别名映射)
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("listCourseByQuery")
+    public List<CourseDto> listByQuery(){
+        log.info("通过mybatis的动态sql实现数据查询");
+        return courseService.listCourseByQuery(new CourseQuery());
+    }
+    /**
+     * 查询课程(mybatis别名映射)
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("listCourseDetail")
+    public List<CourseDto> listCourseDetail(){
+        log.info("通过mybatis的动态sql实现数据查询");
+        return courseService.listCourseDetail(new CourseQuery());
     }
 
     /**
