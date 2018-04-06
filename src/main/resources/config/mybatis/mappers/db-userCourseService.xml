@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="priv.llf.ability.course.south.model.mybatis.UserCoursePool">
+
+    <insert id="userSelectCourse" parameterType="userCoursePool">
+        <selectKey keyProperty="id" resultType="String" order="BEFORE">
+            SELECT REPLACE(UUID(),"-","")
+        </selectKey>
+        INSERT  INTO crp_user_courses_pool
+        VALUES (#{id},#{userId},#{coursePoolId},#{type},#{entityId},#{state},#{period},#{freezeTime},#{chooseTime})
+    </insert>
+
+
+    <insert id="insertUserSelectCourseMarkerBatch" parameterType="UserCoursePoolMarker">
+
+        INSERT  INTO crp_user_courses_pool_marker VALUES
+        <foreach collection="list" item="item" separator=",">
+            ((SELECT REPLACE(UUID(),"-","")),#{item.userCoursePoolId},#{item.userCourseKey},#{item.userCourseValue})
+        </foreach>
+
+    </insert>
+
+</mapper>

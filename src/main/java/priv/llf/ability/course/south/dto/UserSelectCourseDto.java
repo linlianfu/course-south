@@ -1,5 +1,7 @@
 package priv.llf.ability.course.south.dto;
 
+import lombok.Data;
+
 import java.util.List;
 
 /**
@@ -7,6 +9,7 @@ import java.util.List;
  * @Since: 2018/4/4 21:09
  * @Description: 用户课程池信息
  */
+@Data
 public class UserSelectCourseDto {
     /**
      * 个人课程池编号

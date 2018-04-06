@@ -15,7 +15,7 @@
     <insert id="addCourseMarkerBatch" parameterType="CourseMarker">
         INSERT INTO cre_course_masker VALUES
         <foreach collection="list" item="item" separator=",">
-              ( (SELECT REPLACE(UUID(), '-', '') AS id),#{item.courseId},#{item.key},#{item.value})
+              ( (SELECT REPLACE(UUID(), '-', '') AS id),#{item.courseId},#{item.courseKey},#{item.courseValue})
         </foreach>
     </insert>
 </mapper>

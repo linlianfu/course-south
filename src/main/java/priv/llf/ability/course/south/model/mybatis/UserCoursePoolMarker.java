@@ -27,10 +27,10 @@ public class UserCoursePoolMarker {
      * 特征标记键
      */
     @Column(name = "CUM_KEY")
-    private String key;
+    private String userCourseKey;
     /**
      * 特征标记值
      */
     @Column(name = "CUM_VALUE")
-    private String value;
+    private String userCourseValue;
 }

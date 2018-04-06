@@ -43,13 +43,13 @@ public class CourseServiceImpl implements ICourseService{
     public static  final ModelMapper mapper = new ModelMapper();
 
     @Override
-    public List<priv.llf.ability.course.south.dto.CourseDto> listCourse(CourseQuery query) {
+    public List<CourseDto> listCourse(CourseQuery query) {
         List<Course> courseList = courseDao.selectList("listCourseToMap","CSE_ID","");
         if (CollectionUtils.isEmpty(courseList)) return Collections.emptyList();
-        List<priv.llf.ability.course.south.dto.CourseDto> result = new ArrayList<>();
+        List<CourseDto> result = new ArrayList<>();
 
         courseList.forEach(object->{
-          priv.llf.ability.course.south.dto.CourseDto courseDto = mapper.map(object, priv.llf.ability.course.south.dto.CourseDto.class);
+         CourseDto courseDto = mapper.map(object, CourseDto.class);
           result.add(courseDto);
         });
 
@@ -62,12 +62,8 @@ public class CourseServiceImpl implements ICourseService{
 
         List<Course> courseList = courseDao.getSqlSession().selectList("listCourseByQuery");
         if (CollectionUtils.isEmpty(courseList)) return Collections.emptyList();
-        List<priv.llf.ability.course.south.dto.CourseDto> result = new ArrayList<>();
-        courseList.forEach(object->{
-            priv.llf.ability.course.south.dto.CourseDto courseDto = mapper.map(object, priv.llf.ability.course.south.dto.CourseDto.class);
-            result.add(courseDto);
-        });
-
+        List<CourseDto> result;
+        result = mapper.map(courseList,new TypeToken<List<CourseDto>>(){}.getType());
         return result;
     }
 
@@ -76,7 +72,7 @@ public class CourseServiceImpl implements ICourseService{
 
         List<Course> courseList =  courseDao.getSqlSession().selectList("listCourseDetail");
         if (CollectionUtils.isEmpty(courseList)) return Collections.emptyList();
-        List<priv.llf.ability.course.south.dto.CourseDto> result;
+        List<CourseDto> result;
         result = mapper.map(courseList,new TypeToken<List<CourseDto>>(){}.getType());
         return result;
     }

@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: Eleven
@@ -32,7 +34,7 @@ public class UserCoursePool {
      * 元素类型|0/1，课程/课程池，用户选择的元素类型
      */
     @Column(name = "CUP_ENTITY_TYPE")
-    private String type;
+    private int type;
     /**
      * 元素编号|课程编号或课程池编号
      */
@@ -42,7 +44,7 @@ public class UserCoursePool {
      * 课程状态|0/1/2，正常/冻结/过期，课程在用户个人选课池中的状态
      */
     @Column(name = "CUP_STATE")
-    private String state;
+    private int state;
     /**
      * 课程学时|用户选课时，课程的学时或课程池的总学时
      */
@@ -52,10 +54,12 @@ public class UserCoursePool {
      * 冻结时间|最后一次标注为被冻结状态的时间
      */
     @Column(name = "CUP_FREEZE_TIME")
-    private String freezeTime;
+    private Date freezeTime;
     /**
      * 选课时间
      */
     @Column(name = "CUP_CHOOSE_TIME")
-    private String chooseTime;
+    private Date chooseTime;
+
+    private List<UserCoursePoolMarker> userCoursePoolMarkerList;
 }

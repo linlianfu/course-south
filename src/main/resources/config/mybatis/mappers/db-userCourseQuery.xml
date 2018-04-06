@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="priv.llf.ability.course.south.model.mybatis.UserCoursePool">
+
+    <resultMap id="userCoursePoolMap" type="userCoursePool">
+        <id property="id" column="id"/>
+        <collection property="userCoursePoolMarkerList"
+                    column="id"
+                    select="listUserSelectCourseMarker" fetchType="lazy" />
+    </resultMap>
+    
+    
+    <!--查询用户已选课程-->
+    <select id="listUserSelectCourse" resultMap="userCoursePoolMap">
+        SELECT  CUP_ID id,
+                CUP_USER_ID userId,
+                CUP_CCP_ID coursePoolId,
+                CUP_ENTITY_TYPE type,
+                CUP_ENTITY_ID entityId,
+                CUP_STATE state,
+                CUP_PERIOD period,
+                CUP_FREEZE_TIME freezeTime,
+                CUP_CHOOSE_TIME chooseTime
+        FROM  crp_user_courses_pool
+    </select>
+
+    <!--查询用户选课marker-->
+    <select id="listUserSelectCourseMarker" parameterType="String" resultType="userCoursePoolMarker">
+        SELECT CUM_KEY userCourseKey,
+               CUM_VALUE userCourseValue
+        FROM   crp_user_courses_pool_marker
+        WHERE  CUM_CUP_ID = #{userCoursePoolId}
+    </select>
+
+</mapper>
