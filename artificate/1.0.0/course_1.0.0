@@ -78,8 +78,8 @@
         CUP_ENTITY_ID        varchar(32) comment '元素编号|课程编号或课程池编号',
         CUP_STATE            int comment '课程状态|0/1/2，正常/冻结/过期，课程在用户个人选课池中的状态',
         CUP_PERIOD           decimal comment '课程学时|用户选课时，课程的学时或课程池的总学时',
-        CUP_FREEZE_TIME      date comment '冻结时间|最后一次标注为被冻结状态的时间',
-        CUP_CHOOSE_TIME      date comment '选课时间',
+        CUP_FREEZE_TIME      datetime comment '冻结时间|最后一次标注为被冻结状态的时间',
+        CUP_CHOOSE_TIME      datetime comment '选课时间',
         primary key (CUP_ID)
         )
         ENGINE = InnoDB
