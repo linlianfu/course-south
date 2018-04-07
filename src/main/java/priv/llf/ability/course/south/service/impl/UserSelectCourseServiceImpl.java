@@ -13,7 +13,7 @@ import priv.llf.ability.course.south.dto.UserSelectCourseDto;
 import priv.llf.ability.course.south.model.mybatis.UserCoursePool;
 import priv.llf.ability.course.south.model.mybatis.UserCoursePoolMarker;
 import priv.llf.ability.course.south.service.IUserSelectCourseService;
-import priv.llf.commons.except.BasicRuntimeException;
+import priv.llf.ability.course.south.utils.DateUtils;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -44,7 +44,7 @@ public class UserSelectCourseServiceImpl implements IUserSelectCourseService {
         userCoursePoolModel.setCoursePoolId("");
         userCoursePoolModel.setEntityId(query.getCourseId());
         userCoursePoolModel.setPeriod("10");
-        userCoursePoolModel.setChooseTime(new Date());
+        userCoursePoolModel.setChooseTime(DateUtils.toString(new Date(),DateUtils.pattenToDay));
         int i = userCoursePoolDao.getSqlSession().insert("userSelectCourse",userCoursePoolModel);
         if (i == 1){
             List<MarkerDto> markerDtoList = query.getMarkerDtoList();
@@ -67,9 +67,6 @@ public class UserSelectCourseServiceImpl implements IUserSelectCourseService {
     public List<UserSelectCourseDto> listUserSelectCourse() {
 
         List<UserCoursePool> userCoursePoolList = userCoursePoolDao.getSqlSession().selectList("listUserSelectCourse");
-        if (CollectionUtils.isNotEmpty(userCoursePoolList))
-            throw new BasicRuntimeException("111");
-
 
         if (CollectionUtils.isNotEmpty(userCoursePoolList)){
             List<UserSelectCourseDto> resultList = new ArrayList<>();

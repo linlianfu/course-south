@@ -10,6 +10,7 @@ import priv.llf.ability.course.south.arg.UserSelectCourseQuery;
 import priv.llf.ability.course.south.dto.UserSelectCourseDto;
 import priv.llf.ability.course.south.service.IUserSelectCourseService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -41,7 +42,7 @@ public class UserSelectCourseManageAction {
      */
     @ResponseBody
     @RequestMapping("listUserSelectCourse")
-    public List<UserSelectCourseDto> listUserSelectCourse(){
+    public List<UserSelectCourseDto> listUserSelectCourse(HttpServletRequest request){
 
         return  userSelectCourseService.listUserSelectCourse();
     }

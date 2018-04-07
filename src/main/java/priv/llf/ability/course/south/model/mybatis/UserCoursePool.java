@@ -4,7 +4,6 @@ import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -54,12 +53,12 @@ public class UserCoursePool {
      * 冻结时间|最后一次标注为被冻结状态的时间
      */
     @Column(name = "CUP_FREEZE_TIME")
-    private Date freezeTime;
+    private String freezeTime;
     /**
      * 选课时间
      */
     @Column(name = "CUP_CHOOSE_TIME")
-    private Date chooseTime;
+    private String chooseTime;
 
     private List<UserCoursePoolMarker> userCoursePoolMarkerList;
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="priv.llf.ability.course.south.model.mybatis.UnitExt">
+
+    <insert id="insertUnitExt" parameterType="UnitExt">
+    <selectKey keyProperty="id" resultType="String" order="BEFORE">
+        SELECT REPLACE(UUID,"-","")
+    </selectKey>
+    INSERT INTO um_unit_ext
+    VALUES (#{id},#{unitId},#{type},#{value},#{createDate},#{createId},#{available})
+    </insert>
+
+</mapper>
