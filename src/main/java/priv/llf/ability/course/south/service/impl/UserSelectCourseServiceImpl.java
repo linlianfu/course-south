@@ -13,6 +13,7 @@ import priv.llf.ability.course.south.dto.UserSelectCourseDto;
 import priv.llf.ability.course.south.model.mybatis.UserCoursePool;
 import priv.llf.ability.course.south.model.mybatis.UserCoursePoolMarker;
 import priv.llf.ability.course.south.service.IUserSelectCourseService;
+import priv.llf.commons.except.BasicRuntimeException;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -66,6 +67,10 @@ public class UserSelectCourseServiceImpl implements IUserSelectCourseService {
     public List<UserSelectCourseDto> listUserSelectCourse() {
 
         List<UserCoursePool> userCoursePoolList = userCoursePoolDao.getSqlSession().selectList("listUserSelectCourse");
+        if (CollectionUtils.isNotEmpty(userCoursePoolList))
+            throw new BasicRuntimeException("111");
+
+
         if (CollectionUtils.isNotEmpty(userCoursePoolList)){
             List<UserSelectCourseDto> resultList = new ArrayList<>();
             userCoursePoolList.forEach(p->{

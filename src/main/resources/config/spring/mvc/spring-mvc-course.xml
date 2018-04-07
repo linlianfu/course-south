@@ -16,11 +16,12 @@
     <mvc:annotation-driven/>
     <!--平台层web测请求入口所在的控制器-->
     <context:component-scan base-package="local.gateway"/>
-    <!--全局拦截输入的格式为fastjson格式-->
-    <!--<mvc:annotation-driven>-->
-        <!--<mvc:message-converters register-defaults="true">-->
-            <!--<bean class="cn.llf.framework.gateway.intercept.WriteFastJsonHttpMessageConverter">-->
-            <!--</bean>-->
-        <!--</mvc:message-converters>-->
-    <!--</mvc:annotation-driven>-->
+    <!--全局拦截输入的格式为fastJson格式-->
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="priv.llf.commons.intercept.WriteFastJsonHttpMessageConverter"/>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    <!--全局的异常拦截-->
+    <bean class="priv.llf.commons.intercept.WrappedHandlerExceptionResolver"/>
 </beans>
