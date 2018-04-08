@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import priv.llf.ability.course.south.dto.UnitExtDto;
 import priv.llf.ability.course.south.service.IUnitManagerService;
 
+import java.util.Date;
+
 /**
  * @Author: Eleven
  * @Since: 2018/4/7 23:41
@@ -27,8 +29,10 @@ public class UnitManagerAction {
     @RequestMapping("addUnitExt")
     public void addUnitExt(){
         UnitExtDto dto = new UnitExtDto();
+        dto.setAvailable(true);
+        dto.setCreateDate(new Date());
+        dto.setCreateId("林连福");
         JSONObject jsonObject = new JSONObject();
-
         jsonObject.put("type","teacher");
         jsonObject.put("source","flow");
         dto.setValue(jsonObject);

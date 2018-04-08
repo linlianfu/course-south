@@ -12,6 +12,7 @@ drop table if exists um_unit_ext;
         UNE_CREATOR_ID       varchar(32) comment '创建人',
         UNE_CREATE_DATE      datetime comment '创建日期',
         UNE_AVAILABLE        tinyint comment '是否可用 | true：可用；false：不可用；'
+        PRIMARY KEY (UNE_ID)
         )
         ENGINE = InnoDB
         DEFAULT CHARACTER SET = utf8;

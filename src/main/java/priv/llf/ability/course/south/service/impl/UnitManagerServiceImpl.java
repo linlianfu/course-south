@@ -1,6 +1,7 @@
 package priv.llf.ability.course.south.service.impl;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import priv.llf.ability.course.south.dao.mybatis.UnitExtDaoImpl;
@@ -14,7 +15,7 @@ import priv.llf.ability.course.south.service.IUnitManagerService;
  * @Description:
  */
 @Service("unitManagerService")
-public class IUnitManagerServiceImpl implements IUnitManagerService {
+public class UnitManagerServiceImpl implements IUnitManagerService {
 
     @Autowired
     UnitExtDaoImpl unitExtDao;
@@ -24,7 +25,8 @@ public class IUnitManagerServiceImpl implements IUnitManagerService {
     @Override
     public void addUnitExt(UnitExtDto ext) {
 
-        UnitExt extModel = map.map(ext,UnitExt.class);
+        UnitExt extModel = new UnitExt();
+        BeanUtils.copyProperties(ext,extModel);
         unitExtDao.getSqlSession().insert("insertUnitExt",extModel);
     }
 }

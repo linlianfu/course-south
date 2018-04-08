@@ -6,10 +6,10 @@
 
     <insert id="insertUnitExt" parameterType="UnitExt">
     <selectKey keyProperty="id" resultType="String" order="BEFORE">
-        SELECT REPLACE(UUID,"-","")
+        SELECT REPLACE(UUID(),"-","")
     </selectKey>
     INSERT INTO um_unit_ext
-    VALUES (#{id},#{unitId},#{type},#{value},#{createDate},#{createId},#{available})
+    VALUES (#{id},#{unitId},#{type},#{value},#{createId},#{createDate},#{available})
     </insert>
 
 </mapper>

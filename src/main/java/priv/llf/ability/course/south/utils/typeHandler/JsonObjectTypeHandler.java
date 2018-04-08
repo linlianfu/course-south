@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class JsonObjectTypeHandler extends BaseTypeHandler<JSONObject> {
     @Override
     public void setNonNullParameter(PreparedStatement ps, int i, JSONObject parameter, JdbcType jdbcType) throws SQLException {
-
+        ps.setString(i,JSONObject.toJSONString(parameter));
     }
 
     @Override
