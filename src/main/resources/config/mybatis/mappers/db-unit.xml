@@ -12,4 +12,17 @@
     VALUES (#{id},#{unitId},#{type},#{value},#{createId},#{createDate},#{available})
     </insert>
 
+    <select id="listUnitExt" resultType="UnitExt">
+
+        select UNE_ID id,
+              UNE_UNIT_ID unitId,
+              UNE_TYPE type,
+              UNE_VALUE value,
+              UNE_CREATOR_ID createId,
+              UNE_CREATE_DATE createDate,
+              UNE_AVAILABLE available
+        from um_unit_ext;
+
+    </select>
+
 </mapper>

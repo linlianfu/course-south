@@ -22,8 +22,7 @@
     </typeAliases>
 
     <typeHandlers>
-        <typeHandler handler="priv.llf.ability.course.south.utils.typeHandler.DateTypeHandler" javaType="java.util.Date"/>
-        <typeHandler handler="priv.llf.ability.course.south.utils.typeHandler.JsonObjectTypeHandler" javaType="com.alibaba.fastjson.JSONObject"/>
+        <typeHandler handler="priv.llf.mybatis.typeHandler.JsonObjectTypeHandler" javaType="com.alibaba.fastjson.JSONObject"/>
     </typeHandlers>
 
 </configuration>

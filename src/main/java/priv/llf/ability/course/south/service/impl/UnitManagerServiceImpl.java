@@ -1,5 +1,6 @@
 package priv.llf.ability.course.south.service.impl;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,9 @@ import priv.llf.ability.course.south.dao.mybatis.UnitExtDaoImpl;
 import priv.llf.ability.course.south.dto.UnitExtDto;
 import priv.llf.ability.course.south.model.mybatis.UnitExt;
 import priv.llf.ability.course.south.service.IUnitManagerService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author: Eleven
@@ -28,5 +32,26 @@ public class UnitManagerServiceImpl implements IUnitManagerService {
         UnitExt extModel = new UnitExt();
         BeanUtils.copyProperties(ext,extModel);
         unitExtDao.getSqlSession().insert("insertUnitExt",extModel);
+    }
+    @Override
+    public List<UnitExtDto> listUnitExt() {
+
+        List<UnitExt> resultList = unitExtDao.getSqlSession().selectList("listUnitExt");
+        if(CollectionUtils.isNotEmpty(resultList))
+        {
+            List<UnitExtDto> result = new ArrayList<>(resultList.size());
+            resultList.forEach(p->{
+                UnitExtDto dto = new UnitExtDto();
+                dto.setType(p.getType());
+                dto.setValue(p.getValue());
+                dto.setCreateDate(p.getCreateDate());
+                dto.setId(p.getId());
+                dto.setUnitId(p.getUnitId());
+                dto.setCreateId(p.getCreateId());
+                result.add(dto);
+            });
+            return result;
+        }
+        return null;
     }
 }

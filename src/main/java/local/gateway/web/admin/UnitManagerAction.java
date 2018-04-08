@@ -10,6 +10,7 @@ import priv.llf.ability.course.south.dto.UnitExtDto;
 import priv.llf.ability.course.south.service.IUnitManagerService;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: Eleven
@@ -37,6 +38,11 @@ public class UnitManagerAction {
         jsonObject.put("source","flow");
         dto.setValue(jsonObject);
         unitManagerService.addUnitExt(dto);
+    }
+    @ResponseBody
+    @RequestMapping("listUnitExt")
+    public List<UnitExtDto> listUnitExt(){
+        return  unitManagerService.listUnitExt();
     }
 
 }

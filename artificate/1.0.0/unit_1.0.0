@@ -5,14 +5,14 @@ drop table if exists um_unit_ext;
         /*==============================================================*/
         create table um_unit_ext
         (
-        UNE_ID               varchar(32) comment '单位扩展ID',
+        UNE_ID               varchar(32) not null comment '单位扩展ID',
         UNE_UNIT_ID          varchar(32) comment '所属单位ID',
         UNE_TYPE             varchar(32) comment '业务类型',
         UNE_VALUE            text comment '业务值',
         UNE_CREATOR_ID       varchar(32) comment '创建人',
         UNE_CREATE_DATE      datetime comment '创建日期',
-        UNE_AVAILABLE        tinyint comment '是否可用 | true：可用；false：不可用；'
-        PRIMARY KEY (UNE_ID)
+        UNE_AVAILABLE        tinyint comment '是否可用 | true：可用；false：不可用；',
+        primary key (UNE_ID)
         )
         ENGINE = InnoDB
         DEFAULT CHARACTER SET = utf8;
