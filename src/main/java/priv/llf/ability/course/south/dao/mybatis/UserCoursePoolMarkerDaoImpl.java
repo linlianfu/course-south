@@ -5,8 +5,8 @@ import priv.llf.ability.course.south.model.mybatis.UserCoursePoolMarker;
 import priv.llf.mybatis.dao.BaseMybatisDaoImpl;
 
 /**
- * @Author: Eleven
- * @Since: 2018/4/4 21:05
+ * @author: eleven
+ * @since: 2018/4/4 21:05
  * @Description:
  */
 @Repository

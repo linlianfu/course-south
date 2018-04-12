@@ -3,8 +3,8 @@ package priv.llf.ability.course.south.dto;
 import lombok.Data;
 
 /**
- * @Author: Eleven
- * @Since: 2018/4/4 21:09
+ * @author: eleven
+ * @since: 2018/4/4 21:09
  * @Description:
  */
 @Data

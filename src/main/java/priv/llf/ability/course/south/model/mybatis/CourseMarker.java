@@ -7,8 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 
 /**
- * @Author: Eleven
- * @Since: 2018/4/4 20:50
+ * @author: eleven
+ * @since: 2018/4/4 20:50
  * @Description:
  */
 @Data

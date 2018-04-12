@@ -1,8 +1,8 @@
 package priv.llf.ability.course.south.dto;
 
 /**
- * @Author: Eleven
- * @Since: 2018/4/4 21:09
+ * @author: eleven
+ * @since: 2018/4/4 21:09
  * @Description: 课程池信息
  */
 public class CoursePoolDto {

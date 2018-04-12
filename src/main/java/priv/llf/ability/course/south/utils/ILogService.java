@@ -1,8 +1,8 @@
 package priv.llf.ability.course.south.utils;
 
 /**
- * @Author: Eleven
- * @Since: 2018/4/5 14:08
+ * @author: eleven
+ * @since: 2018/4/5 14:08
  * @Description:
  */
 public interface ILogService {

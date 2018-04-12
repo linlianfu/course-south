@@ -6,8 +6,8 @@ import org.hibernate.validator.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
- * @Author: eleven
- * @Since: 2018/3/18 16:33
+ * @author: eleven
+ * @since: 2018/3/18 16:33
  * @Description:
  */
 @Data

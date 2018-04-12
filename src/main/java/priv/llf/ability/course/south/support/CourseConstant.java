@@ -1,8 +1,8 @@
 package priv.llf.ability.course.south.support;
 
 /**
- * @Author: Eleven
- * @Since: 2018/4/6 12:56
+ * @author: eleven
+ * @since: 2018/4/6 12:56
  * @Description:
  */
 public class CourseConstant {

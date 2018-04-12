@@ -7,8 +7,8 @@ import priv.llf.ability.course.south.dto.CourseDto;
 import java.util.List;
 
 /**
- * @Author: eleven
- * @Since: 2018/3/18 16:31
+ * @author: eleven
+ * @since: 2018/3/18 16:31
  * @Description:
  */
 @Validated
