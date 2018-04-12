@@ -51,12 +51,30 @@
 			   CSE_IS_DELETE isdelete,
 			   CSE_IS_ENABLED isenable,
 			   CSE_ICON_PATH path
- 		from cre_course;
+ 		from cre_course
+ 		WHERE 1=1
+ 		<if test="courseIdList !=null">
+			id IN
+			<foreach collection="courseIdList" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+		</if>
+
 	</select>
 
 	<!--查询课程信息，外部封装自己映射结果 -->
 	<select id="listCourseToMap" parameterType="String"  resultType="java.util.Map">
         select * from cre_course
+		WHERE 1=1
+		<if test="courseIdList !=null">
+			 and CSE_ID IN
+			<foreach collection="courseIdList" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+		</if>
+		<if test="courseId != null">
+			and CSE_ID = #{courseId}
+		</if>
 	</select>
 	<!--添加课程-->
 	<insert id="addCourse" parameterType="Course">

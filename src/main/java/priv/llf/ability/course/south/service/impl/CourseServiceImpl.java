@@ -44,7 +44,7 @@ public class CourseServiceImpl implements ICourseService{
 
     @Override
     public List<CourseDto> listCourse(CourseQuery query) {
-        List<Course> courseList = courseDao.selectList("listCourseToMap","CSE_ID","");
+        List<Course> courseList = courseDao.selectList("listCourseToMap","CSE_ID",query);
         if (CollectionUtils.isEmpty(courseList)) return Collections.emptyList();
         List<CourseDto> result = new ArrayList<>();
 

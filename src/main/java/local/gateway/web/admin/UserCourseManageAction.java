@@ -1,5 +1,7 @@
 package local.gateway.web.admin;
 
+import local.service.IUserCourseService;
+import local.service.dto.UserCourseDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import priv.llf.ability.course.south.arg.UserSelectCourseQuery;
-import priv.llf.ability.course.south.dto.UserSelectCourseDto;
-import priv.llf.ability.course.south.service.IUserSelectCourseService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -21,10 +21,10 @@ import java.util.List;
 @Slf4j
 @Controller
 @RequestMapping(value = "userSelectCourseManage")
-public class UserSelectCourseManageAction {
+public class UserCourseManageAction {
 
     @Autowired
-    IUserSelectCourseService userSelectCourseService;
+    IUserCourseService userCourseService;
 
     /**
      * 用户选课
@@ -33,7 +33,7 @@ public class UserSelectCourseManageAction {
     @ResponseBody
     @RequestMapping("chooseCourse")
     public String chooseCourse(@RequestBody UserSelectCourseQuery query){
-        userSelectCourseService.selectCourseQuery(query);
+        userCourseService.selectCourseQuery(query);
         return "选课成功";
     }
     /**
@@ -42,8 +42,8 @@ public class UserSelectCourseManageAction {
      */
     @ResponseBody
     @RequestMapping("listUserSelectCourse")
-    public List<UserSelectCourseDto> listUserSelectCourse(HttpServletRequest request){
+    public List<UserCourseDto> listUserSelectCourse(HttpServletRequest request){
 
-        return  userSelectCourseService.listUserSelectCourse();
+        return  userCourseService.listUserSelectCourse();
     }
 }
