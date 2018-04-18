@@ -16,7 +16,6 @@ import java.util.List;
 public class UserSelectCourseQuery implements Serializable {
 
     @NotBlank(message = "userId不能为空")
-
     private String userId;
 
     @NotBlank(message = "courseId不能为空")

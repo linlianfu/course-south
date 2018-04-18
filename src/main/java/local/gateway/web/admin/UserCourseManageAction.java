@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import priv.llf.ability.course.south.arg.UserSelectCourseQuery;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -32,7 +33,7 @@ public class UserCourseManageAction {
      */
     @ResponseBody
     @RequestMapping("chooseCourse")
-    public String chooseCourse(@RequestBody UserSelectCourseQuery query){
+    public String chooseCourse(@RequestBody @Valid UserSelectCourseQuery query){
         userCourseService.selectCourseQuery(query);
         return "选课成功";
     }
