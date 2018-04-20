@@ -14,6 +14,7 @@
     <dubbo:protocol host="${dubbo.protocol.host}" port="${dubbo.protocol.port}"/>
     <!-- 对外暴露的接口 ref为接口对应的实现类-->
     <dubbo:service interface="priv.llf.ability.course.south.service.ICourseService" ref="courseService" group="course-south"/>
+    <dubbo:service interface="priv.llf.ability.course.south.service.IUserSelectCourseService" ref="userSelectCourseService" group="course-south"/>
 
     <!--<bean id="courseService" class="priv.llf.ability.course.south.service.impl.CourseServiceImpl"/>-->
 

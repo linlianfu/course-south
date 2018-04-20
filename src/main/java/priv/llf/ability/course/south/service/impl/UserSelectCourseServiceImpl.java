@@ -25,7 +25,7 @@ import java.util.List;
  * @Description:
  */
 @Slf4j
-@Service
+@Service("userSelectCourseService")
 public class UserSelectCourseServiceImpl implements IUserSelectCourseService {
 
     @Autowired
