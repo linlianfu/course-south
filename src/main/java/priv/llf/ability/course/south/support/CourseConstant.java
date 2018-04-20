@@ -10,5 +10,5 @@ public class CourseConstant {
 
     public static final String SCHEME_ID = "schemeId";
 
-    public static final String learningId = "schemeId";
+    public static final String LEARNING_ID = "learningId";
 }
