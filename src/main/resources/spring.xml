@@ -15,6 +15,7 @@
     <!--<import resource="classpath:/config/spring/spring-elasticsearch.xml"/>-->
     <!--<import resource="classpath:/config/spring/spring-mongo.xml"/>-->
     <!--<import resource="classpath:/config/spring/spring-rocket-mq.xml"/>-->
+    <import resource="classpath:/config/spring/spring-dubbo.xml"/>
     <import resource="classpath:/config/spring/spring-dubbo-provider.xml"/>
 
     <!--<bean id="cacheSupport" class="cn.llf.framework.cache.CacheSupport" init-method="initMethod">-->
