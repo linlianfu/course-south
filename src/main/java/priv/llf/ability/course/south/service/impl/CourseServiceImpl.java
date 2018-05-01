@@ -90,7 +90,9 @@ public class CourseServiceImpl implements ICourseService{
                 List<CourseMarker> courseMarkerList = new ArrayList<>(markerQueryList.size());
                 markerQueryList.forEach(p->
                 {
-                    CourseMarker marker = mapper.map(p,CourseMarker.class);
+                    CourseMarker marker = new CourseMarker();
+                    marker.setCourseKey(p.getKey());
+                    marker.setCourseValue(p.getValue());
                     marker.setCourseId(courseModel.getId());
                     courseMarkerList.add(marker);
                 });

@@ -10,7 +10,7 @@
         NONE 表示取消自动映射；
         PARTIAL 只会自动映射没有定义嵌套结果集映射的结果集。
         FULL 会自动映射任意复杂的结果集（无论是否嵌套）-->
-        <!--<setting name="autoMappingBehavior" value="FULL"/>-->
+        <setting name="autoMappingBehavior" value="FULL"/>
         <!-- 打开延迟加载的开关 -->
         <setting name="lazyLoadingEnabled" value="true" />
         <!-- 将积极加载改为消息加载即按需加载 -->
