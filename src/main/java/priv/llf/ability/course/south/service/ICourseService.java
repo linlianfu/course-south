@@ -4,6 +4,7 @@ import org.springframework.validation.annotation.Validated;
 import priv.llf.ability.course.south.arg.CourseQuery;
 import priv.llf.ability.course.south.dto.CourseDto;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ public interface ICourseService {
      * @param query
      * @return
      */
-    List<CourseDto> listCourse(CourseQuery query);
+    List<CourseDto> listCourse(@Valid CourseQuery query);
 
     /**
      * 课程分页查询（查询另取别名-自动映射）
