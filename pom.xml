@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>priv.llf</groupId>
   <artifactId>priv-llf-ability-course-south</artifactId>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <version>1.0.0-SNAPSHOT</version>
   <name>priv-llf-ability-curse-south Maven Webapp</name>
   <url>http://maven.apache.org</url>
@@ -303,6 +303,9 @@
         <filtering>true</filtering>
       </resource>
 
+      <!--压包的时候，千万将xml的文件一起压包，否则会造成spring扫描的时候会扫描对应xml文件
+      而xml文件包括mybatis文件，mybatis会扫描对应的包下的dto，导致引用该包的消费端包也必须要
+      有同样的dto，否则会报类找不到的异常-->
       <!--<resource>-->
         <!--<directory>src/main/resources</directory>-->
         <!--<includes>-->
