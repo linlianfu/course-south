@@ -62,6 +62,23 @@
 
 	</select>
 
+
+	<!--查询课程信息，外部封装自己映射结果 -->
+	<select id="listCourseByAutoMapping" parameterType="String"  resultType="course">
+		select CSE_ID id,
+		CSE_NAME name,
+		CSE_PERIOD period,
+		CSE_ABOUTS abouts,
+		CSE_IS_DELETE isdelete,
+		CSE_IS_ENABLED isenable,
+		CSE_ICON_PATH path
+		from cre_course
+		WHERE 1=1
+		<if test="#{_parameter} != null">
+			and CSE_ID = #{_parameter}
+		</if>
+	</select>
+
 	<!--查询课程信息，外部封装自己映射结果 -->
 	<select id="listCourseToMap" parameterType="String"  resultType="java.util.Map">
         select * from cre_course
@@ -84,6 +101,7 @@
         INSERT INTO cre_course VALUES (#{id},#{name},#{period},#{abouts},#{delete},#{enable},#{path})
 	</insert>
 
-
+	<!--namespace必须加上此标签才会开启二级缓存-->
+	<cache />
 
 </mapper>

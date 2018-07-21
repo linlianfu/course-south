@@ -16,7 +16,7 @@ import java.util.List;
 @Data
 @Alias("course")
 @Table(name = "cre_course")
-public class  Course {
+public class  Course{
     /**
      * 课程id
      */
