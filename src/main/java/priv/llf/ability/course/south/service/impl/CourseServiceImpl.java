@@ -42,8 +42,22 @@ public class CourseServiceImpl implements ICourseService{
 
     public static  final ModelMapper mapper = new ModelMapper();
 
+//    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Override
+    public CourseDto getCourse(String courseId) {
+        log.info("测试mybatis默认开启的二级缓存");
+        Course course = courseDao.getSqlSession().selectOne("listCourseByAutoMapping", courseId);
+        log.info("第一次查询结果：{}",course.toString());
+        Course course1 = courseDao.getSqlSession().selectOne("listCourseByAutoMapping", courseId);
+        log.info("第二次执行查询完毕:{}",course1.toString());
+        CourseDto courseDto = mapper.map(course, CourseDto.class);
+
+        return courseDto;
+    }
+
     @Override
     public List<CourseDto> listCourse(CourseQuery query) {
+        query.setCourseId("890b4dc64d2011e8b509a81e84e02b6e");
         List<Course> courseList = courseDao.selectList("listCourseToMap","CSE_ID",query);
         if (CollectionUtils.isEmpty(courseList)) return Collections.emptyList();
         List<CourseDto> result = new ArrayList<>();

@@ -5,6 +5,7 @@ import org.apache.ibatis.type.Alias;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Data
 @Alias("course")
 @Table(name = "cre_course")
-public class  Course{
+public class  Course implements Serializable{
     /**
      * 课程id
      */

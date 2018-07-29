@@ -14,6 +14,14 @@ import java.util.List;
  */
 @Validated
 public interface ICourseService {
+
+
+    /**
+     * 查询指定的课程
+     * @param courseId
+     * @return
+     */
+    CourseDto getCourse(String courseId);
     /**
      * 课程分页查询（mybatis返回map数据，外围自己映射）
      * @param query

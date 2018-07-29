@@ -1,6 +1,7 @@
 package local.gateway.web.admin;
 
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +26,16 @@ public class CourseManagerAction {
 
     @Autowired
     ICourseService courseService;
+
+    /**
+     * 查询课程（类反射机制映射）
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("getCourse")
+    public CourseDto getCourse(@NotBlank(message = "课程id不能为空") String courseId){
+        return courseService.getCourse(courseId);
+    }
 
     /**
      * 查询课程（类反射机制映射）
