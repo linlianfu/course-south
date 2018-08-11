@@ -22,6 +22,7 @@
         <!--<property name="projectName" value="framework"/>-->
     <!--</bean>-->
 
+    <!--是 push-->
     <!-- 启动对@AspectJ注解的支持 -->
     <!--<aop:aspectj-autoproxy/>-->
     <!--&lt;!&ndash;通知spring使用cglib而不是jdk的来生成代理方法 AOP可以拦截到Controller &ndash;&gt;-->
